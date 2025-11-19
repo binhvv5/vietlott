@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import requests
 from telegram.ext import Updater, CommandHandler
