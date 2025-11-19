@@ -1,7 +1,9 @@
 import json
 from telegram.ext import Updater, CommandHandler
 
-TOKEN = "YOUR_TELEGRAM_TOKEN_HERE"
+import os
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+
 
 # ---------------------- LOAD JSON ----------------------
 def load_results():
