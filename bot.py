@@ -6,6 +6,7 @@ from telegram.ext import Updater, CommandHandler
 JSON_FILE = "vietlott_645.json"
 LATEST_URL = "https://xoso.com.vn/xo-so-vietlott-mega-6-45.html"
 
+
 # ---------------------------
 # Helpers
 # ---------------------------
@@ -145,7 +146,15 @@ def cmd_random_max(update, context):
 # ---------------------------
 
 def main():
-    TOKEN = "PUT_YOUR_TELEGRAM_BOT_TOKEN_HERE"
+    # ---------------------------
+    # CONFIG
+    # ---------------------------
+
+    # Lấy token từ biến môi trường TELEGRAM_TOKEN
+    TOKEN = os.getenv("TELEGRAM_TOKEN")
+    if not TOKEN:
+        raise RuntimeError("Vui lòng đặt biến môi trường TELEGRAM_TOKEN với token bot của bạn.")
+
 
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
